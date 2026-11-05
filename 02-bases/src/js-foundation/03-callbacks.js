@@ -10,7 +10,9 @@ const users = [
 ];
 
 function getUserById(id, callback) {
-  const user = users.find((user) => user.id === id);
+  const user = users.find(function(user) {
+    return user.id === id;
+  });
 
   if (callback) {
     callback(user ? null : new Error("User not found"), user);
