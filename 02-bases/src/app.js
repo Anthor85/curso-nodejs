@@ -17,5 +17,10 @@
 
 // console.log(emailTemplate);
 
+const { buildMakePerson } = require("./js-foundation/05-factory.js");
+const { uuidv4, getAge } = require("../plugins");
 
-require("./js-foundation/05-factory.js");
+const makePerson = buildMakePerson({ uuidv4, getAge });
+const john = { name: "John", birthdate: "1985-03-25", city: "New York" };
+const johnMade = makePerson(john);
+console.log(johnMade);
