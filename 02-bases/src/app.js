@@ -17,10 +17,20 @@
 
 // console.log(emailTemplate);
 
-const { buildMakePerson } = require("./js-foundation/05-factory.js");
-const { uuidv4, getAge } = require("../plugins");
+// const { buildMakePerson } = require("./js-foundation/05-factory.js");
+// const { uuidv4, getAge } = require("../plugins");
 
-const makePerson = buildMakePerson({ uuidv4, getAge });
-const john = { name: "John", birthdate: "1985-03-25", city: "New York" };
-const johnMade = makePerson(john);
-console.log(johnMade);
+// const makePerson = buildMakePerson({ uuidv4, getAge });
+// const john = { name: "John", birthdate: "1985-03-25", city: "New York" };
+// const johnMade = makePerson(john);
+// console.log(johnMade);
+
+const getPokemonById = require("./js-foundation/06-promises.js");
+
+console.log(
+  getPokemonById(25)
+    .then((pokemon) => {
+      console.log(`Pokemon found: ${pokemon.name}`);
+    })
+    .catch((error) => console.log(`Error: ${error.message}`)),
+);
