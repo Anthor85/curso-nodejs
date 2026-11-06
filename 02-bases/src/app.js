@@ -25,10 +25,11 @@
 // const johnMade = makePerson(john);
 // console.log(johnMade);
 
-const getPokemonById = require("./js-foundation/06-promises.js");
+// const getPokemonById = require("./js-foundation/06-promises.js");
+const getPokemonById = require("./js-foundation/07-async-await.js");
 
 console.log(
-  getPokemonById(25)
+  getPokemonById(215)
     .then((pokemon) => {
       console.log(`Pokemon found: ${pokemon.name}`);
     })
