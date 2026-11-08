@@ -1,4 +1,4 @@
-const { httpClient } = require("../../plugins");
+const { httpClient } = require("../plugins");
 
 const getPokemonById = async (id) => {
 

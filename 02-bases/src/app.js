@@ -26,12 +26,17 @@
 // console.log(johnMade);
 
 // const getPokemonById = require("./js-foundation/06-promises.js");
-const getPokemonById = require("./js-foundation/07-async-await.js");
+// const getPokemonById = require("./js-foundation/07-async-await.js");
+const { buildLogger } = require("./plugins");
 
-console.log(
-  getPokemonById(215)
-    .then((pokemon) => {
-      console.log(`Pokemon found: ${pokemon.name}`);
-    })
-    .catch((error) => console.log(`Error: ${error.message}`)),
-);
+const logger = buildLogger("app.js");
+
+logger.error("Hola mundo mortal");
+
+// console.log(
+//   getPokemonById(215)
+//     .then((pokemon) => {
+//       console.log(`Pokemon found: ${pokemon.name}`);
+//     })
+//     .catch((error) => console.log(`Error: ${error.message}`)),
+// );
