@@ -1,4 +1,4 @@
-const emailTemplate = `
+export const emailTemplate = `
   <div>
     <h1>Hi, {{name}}!</h1>
     <p>Thank you for your order.</p>
@@ -6,4 +6,4 @@ const emailTemplate = `
 
 // console.log(emailTemplate);
 
-module.exports = { emailTemplate };
+// module.exports = { emailTemplate };

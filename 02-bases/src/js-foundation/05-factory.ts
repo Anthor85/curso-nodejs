@@ -1,10 +1,23 @@
+import { uuidv4 } from '../plugins/uuid.plugin';
+import { getAge } from '../plugins/get-age.plugin';
 // const { uuidv4 } = require("../plugins/uuid.plugin");
 // const { getAge } = require("../plugins/get-age.plugin");
 
 // const obj = { name: "John", birthdate: "1985-03-25", city: "New York" };
 
-const buildMakePerson = ({ uuidv4, getAge }) => {
-  return ({ name, birthdate, city }) => {
+interface Options {
+  uuidv4: () => string;
+  getAge: (birthdate: string) => number;
+}
+
+interface UserData {
+  name: string;
+  birthdate: string;
+  city: string;
+}
+
+export const buildMakePerson = ({ uuidv4, getAge }: Options) => {
+  return ({ name, birthdate, city }: UserData) => {
     return {
       // id: new Date().getTime(),
       id: uuidv4(),
@@ -21,4 +34,4 @@ const buildMakePerson = ({ uuidv4, getAge }) => {
 
 // console.log(Juanito);
 
-module.exports = { buildMakePerson };
+// module.exports = { buildMakePerson };
