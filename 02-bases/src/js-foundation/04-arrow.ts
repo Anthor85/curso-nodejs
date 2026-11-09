@@ -1,4 +1,6 @@
-const users = [
+import { User } from "./03-callbacks";
+
+const users: User[] = [
   {
     id: 1,
     name: "Alice",
@@ -9,7 +11,10 @@ const users = [
   },
 ];
 
-const getUserById = (id, callback) => {
+export const getUserById = (
+  id: number,
+  callback: (error: Error | null, user?: User) => void,
+) => {
   const user = users.find((user) => user.id === id);
 
   if (callback) {
@@ -17,8 +22,8 @@ const getUserById = (id, callback) => {
   } else {
     console.log(user);
   }
-}
-
-module.exports = {
-  getUserById,
 };
+
+// module.exports = {
+//   getUserById,
+// };
