@@ -1,4 +1,6 @@
 "use strict";
+// const { uuidv4 } = require("../plugins/uuid.plugin");
+// const { getAge } = require("../plugins/get-age.plugin");
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buildMakePerson = void 0;
 const buildMakePerson = ({ uuidv4, getAge }) => {
