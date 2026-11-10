@@ -1,5 +1,3 @@
-import { uuidv4 } from '../plugins/uuid.plugin';
-import { getAge } from '../plugins/get-age.plugin';
 // const { uuidv4 } = require("../plugins/uuid.plugin");
 // const { getAge } = require("../plugins/get-age.plugin");
 

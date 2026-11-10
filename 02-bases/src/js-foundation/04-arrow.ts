@@ -19,8 +19,6 @@ export const getUserById = (
 
   if (callback) {
     callback(user ? null : new Error("User not found"), user);
-  } else {
-    console.log(user);
   }
 };
 

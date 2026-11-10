@@ -1,1 +1,1 @@
-{"version":3,"file":"http-client.plugin.d.ts","sourceRoot":"","sources":["../../src/plugins/http-client.plugin.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,UAAU;IACrB,MAAM,QAAc,MAAM;CAO3B,CAAC"}
+{"version":3,"file":"http-client.plugin.d.ts","sourceRoot":"","sources":["../../src/plugins/http-client.plugin.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,UAAU;kBACD,MAAM;CAO3B,CAAC"}

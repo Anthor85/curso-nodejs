@@ -18,9 +18,6 @@ const getUserById = (id, callback) => {
     if (callback) {
         callback(user ? null : new Error("User not found"), user);
     }
-    else {
-        console.log(user);
-    }
 };
 exports.getUserById = getUserById;
 // module.exports = {
