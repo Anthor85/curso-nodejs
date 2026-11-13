@@ -1,0 +1,32 @@
+{
+  "name": "04-mutiplication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "build": "rimraf ./dist && tsc",
+    "start": "npm run build && node dist/app.js",
+    "dev:nodemon": "nodemon",
+    "dev": "ts-node ./src/app.ts -b -w -d 0 -f 'hola'"
+  },
+  "keywords": [],
+  "author": "Anthor85",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "rimraf": "^6.1.4",
+    "supertest": "^7.3.2",
+    "ts-jest": "^29.4.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "yargs": "^18.2.0"
+  }
+}
