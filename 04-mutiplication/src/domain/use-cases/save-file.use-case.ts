@@ -12,11 +12,11 @@ export interface SaveFileUseCase {
 export class SaveFile implements SaveFileUseCase {
   constructor /** repository: StorageRepository */() {}
 
-  execute = ({
+  execute({
     fileContent,
     destination = `src/outputs`,
     fileName = "table.txt",
-  }: SaveFileOptions) => {
+  }: SaveFileOptions) {
     try {
       fs.mkdirSync(destination, { recursive: true });
       fs.writeFileSync(`${destination}/${fileName}`, fileContent);
@@ -26,5 +26,5 @@ export class SaveFile implements SaveFileUseCase {
       console.error(error);
       return false;
     }
-  };
+  }
 }

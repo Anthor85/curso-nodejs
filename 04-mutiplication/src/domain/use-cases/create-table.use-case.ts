@@ -14,11 +14,9 @@ export class CreateTable implements CreateTableUseCase {
 
   execute({ base, limit = 10 }: CreateTableOptions) {
     const array: string[] = [
-      `
-=========================
+      `=========================
        Tabla del ${base}
-=========================
-  `,
+=========================`,
     ];
     const directory = "src/outputs";
     for (let index = 1; index <= limit; index++) {
