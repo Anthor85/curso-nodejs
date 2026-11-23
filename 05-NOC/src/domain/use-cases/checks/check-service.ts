@@ -20,21 +20,30 @@ export class CheckService implements CheckServiceUseCase {
       const req = await fetch(url);
       if (!req.ok) {
         this.logRepository.saveLog(
-          new LogEntity(
-            `Error on check service ${url}`,
-            LogSeveritiyLevel.high,
-          ),
+          new LogEntity({
+            message: `Error on check service ${url}`,
+            level: LogSeveritiyLevel.high,
+            origin: "check-service.ts",
+          }),
         );
         throw new Error(`Error on check service ${url}`);
       }
       this.logRepository.saveLog(
-        new LogEntity(`Service ${url} working`, LogSeveritiyLevel.low),
+        new LogEntity({
+          message: `Service ${url} working`,
+          level: LogSeveritiyLevel.low,
+          origin: "check-service.ts",
+        }),
       );
       this.successCallback && this.successCallback();
       return true;
     } catch (error) {
       this.logRepository.saveLog(
-        new LogEntity(`${url} is not ok, ${error}`, LogSeveritiyLevel.high),
+        new LogEntity({
+          message: `${url} is not ok, ${error}`,
+          level: LogSeveritiyLevel.high,
+          origin: "check-service.ts",
+        }),
       );
       this.errorCallback && this.errorCallback(`${error}`);
 
