@@ -1,12 +1,15 @@
-import { FileSystemDatasource } from "../domain/infrastructure/datasources/file-system.datasource";
-import { LogRepositoryImpl } from "../domain/infrastructure/repositories/log.repository.impl";
+import { LogSeveritiyLevel } from "../domain/entities/log.entity";
 import { CheckService } from "../domain/use-cases/checks/check-service";
 import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
+import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
+import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
+import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
 import { CronService } from "./cron/cron-service";
 import { EmailService } from "./email/email.service";
 
-const fileSystemLogRepository = new LogRepositoryImpl(
-  new FileSystemDatasource(), //Aquí podemos poner cualquier Datasource que creemos (Mongo, Postgre...)
+const logRepository = new LogRepositoryImpl(
+  // new FileSystemDatasource(), //Aquí podemos poner cualquier Datasource que creemos (Mongo, Postgre...)
+  new MongoLogDatasource(),
 );
 
 const emailService = new EmailService();
@@ -16,9 +19,9 @@ export class Server {
     console.log("Server started...");
 
     //Mandar email de logs
-    new SendEmailLogs(emailService, fileSystemLogRepository).execute(
-      "antoniomacianmartinez@gmail.com",
-    );
+    // new SendEmailLogs(emailService, fileSystemLogRepository).execute(
+    //   "antoniomacianmartinez@gmail.com",
+    // );
 
     //Mandar email
     // const emailService = new EmailService(/* fileSystemLogRepository */);
@@ -40,19 +43,22 @@ export class Server {
     //     `,
     // });
 
+    // const logs = logRepository.getLogs(LogSeveritiyLevel.high);
+    // console.log(logs);
+
     // CronService.createJob("*/5 * * * * *", () => {
-    //   // console.log(
-    //   //   "2 second",
-    //   //   new Date().toLocaleString("en-US", {
-    //   //     timeZone: "America/Los_Angeles",
-    //   //   }),
-    //   // );
+    //   //   // console.log(
+    //   //   //   "2 second",
+    //   //   //   new Date().toLocaleString("en-US", {
+    //   //   //     timeZone: "America/Los_Angeles",
+    //   //   //   }),
+    //   //   // );
     //   new CheckService(
-    //     fileSystemLogRepository,
+    //     logRepository,
     //     () => console.log("Servicio ok"),
     //     () => console.error("Servicio falló"),
-    //   ).execute("http://www.google.come");
-    //  new CheckService().execute('http://localhost:3000/posts');
+    //   ).execute("http://www.google.com");
+    //   //  new CheckService().execute('http://localhost:3000/posts');
     // });
   }
 }
