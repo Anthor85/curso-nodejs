@@ -1,6 +1,6 @@
-import { LogEntity, LogSeveritiyLevel } from "../../entities/log.entity";
-import { LogRepository } from "../../repository/log.repository";
-import { LogDatasource } from "../../datasources/log.datasource";
+import { LogEntity, LogSeveritiyLevel } from "../../domain/entities/log.entity";
+import { LogRepository } from "../../domain/repository/log.repository";
+import { LogDatasource } from "../../domain/datasources/log.datasource";
 
 export class LogRepositoryImpl implements LogRepository {
   //Inyección de dependencias en el constructor. Equivale a declarar const fuera
